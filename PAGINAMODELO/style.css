@@ -1,0 +1,429 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(fondo.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+h3 {
+    font-size: 3em;
+    bottom: 30px;
+    position: fixed;
+    color: white;
+    top: 120px;
+}
+
+.logo {
+    font-size: 2em;
+    color: white;
+    user-select: none;
+    width: 120px;
+    height: 70px;
+    top: 30px
+}
+.navegador a {
+    position: relative;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navegador a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navegador a:hover::after{
+    transform: scaleX(1);
+
+}
+
+
+.navegador .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s ease;
+}
+
+.navegador .btnLogin-popup:hover {
+    background: white;
+    color: #162938;
+}
+
+.cuadro{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgb(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+
+.cuadro.active-popup {
+    transform: scale(1);
+}
+
+.cuadro.active {
+    height: 520px;
+}
+
+.cuadro .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.cuadro .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.cuadro.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+
+}
+
+.cuadro .form-box.register{
+    position: fixed;
+    transform: translateX(400px);
+    transition: transform .18s ease;
+   
+}
+
+.cuadro.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0px);
+}
+
+.cuadro .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #3d235a;
+    font-size: 2em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom:  2px solid #3d235a;
+    margin: 30px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 0%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color:  white;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #3d235a;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #3d235a;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #3d235a;
+    font-weight: 500;
+    display: flex;
+    margin: -15px 0 15px;
+    justify-content: space-between;
+}
+
+
+.remember-forgot label input {
+    accent-color: #3d235a;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #3d235a;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #3d235a;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    transition: 0.4s ease;
+}
+
+.btn:hover {
+    background: white;
+    color: #3d235a;
+}
+
+.login-register {
+    font-size: .9em;
+    color: #3d235a;
+    text-align: center;
+    font-weight: 500;
+    margin:15px 0 10px;
+    justify-content: space-between
+}
+
+.login-register p a {
+    color: #3d235a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}
+
+.cuadro-gen p{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 430px;
+    height: 440px;
+    color: white;
+    top: 30px;
+}
+
+.uvi-imag img{
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    width: 490px;
+    height: 500px;
+    top: 55px;
+    left: 30px;
+}
+
+.cuadro-plan {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    width:  100vh;
+    height: 100vh;
+    font-size: 1.4em;
+    color: white;
+}
+
+.plan-uno {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 2px solid rgb(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px black;
+    width: 250px;
+    height: 300px;
+    padding: 40px;
+    padding-left: 50px;
+
+
+}
+
+.plan-dos {
+    position: relative;
+    border: 2px solid rgb(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px black;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height:300px;
+    padding: 40px;
+    padding-left: 50px;
+
+}
+
+.plan-tres {
+    position: relative;
+    background: transparent;
+    border: 2px solid rgb(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px black;
+    width: 250px;
+    height:300px;
+    padding: 40px;
+    padding-left: 50px;  
+}
+
+.titulon {
+    bottom: 650px;
+    display: flex;
+    position: absolute;
+    color: white;
+}
+
+.container-contacto {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 50px;
+    margin-top: 290px;
+    color: white;
+}
+
+.container-contacto h2{
+    margin-bottom: 15px;
+    font-size: 35px;
+}
+
+.container-contacto p{
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.container-contacto a{
+    font-size: 17px;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: 700;
+}
+
+.container-contacto a i{
+    color: #bd72fd;
+    margin-right: 10px;
+}
+
+.container-contacto form, .campo, textarea{
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 15px;
+    border: 1px solid #bd72fd;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    outline: 0px;
+}
+
+.container-contacto form textarea{
+    max-width: 530px;
+    min-width: 530px;
+    min-width: 140px;
+    max-height: 140px;
+}
+
+.container-contacto .btn-enviar{
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    outline: o;
+    background: #bd72fd;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.container-contacto .btn-enviar:hover{
+    background: #470083;
+}
